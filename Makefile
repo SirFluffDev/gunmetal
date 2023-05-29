@@ -25,7 +25,7 @@ $(OUT): bin/boot_sect.bin bin/kernel.bin
 	truncate -s 1M $(OUT)
 
 # Create kernel binary
-bin/kernel.bin: kernel/kernel_entry.o $(OBJ)
+bin/kernel.bin: kernel/_entry.o $(OBJ)
 	$(LD) -o $@ -Ttext $(KERNEL_OFFSET) $^ --oformat binary
 
 # Create boot sector binary
