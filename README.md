@@ -1,2 +1,2 @@
 # gunmetal
- Bare metal first-person shooter that runs independently of any operating system
+ > A first-person shooter 'operating system' in the style of Wolfenstein 3D

@@ -72,7 +72,7 @@ disk_packet:
     db 0x10
     db 0
 .num_sectors:
-    dw 16 ; How many sectors to load
+    dw 0x20 ; How many sectors to load
 .offset:
     dd KERNEL_OFFSET ; Where to load kernel in memory
 .read_from:

@@ -1,10 +1,11 @@
 CC=i686-elf-gcc
 LD=i686-elf-ld
 
+OUT=os_image
+
 KERNEL_OFFSET=0x7e00
 
-# File name for the OS image
-OUT=os_image
+QEMU_FLAGS=-drive file=$(OUT),format=raw -no-reboot -accel kvm
 
 # Generate list of *.c files in kernel folder
 SOURCES = $(wildcard kernel/*.c)
@@ -17,7 +18,7 @@ OBJ = $(SOURCES:.c=.o)
 all: $(OUT)
 
 run: all
-	qemu-system-x86_64 -drive file=$(OUT),format=raw -no-reboot
+	qemu-system-x86_64 $(QEMU_FLAGS)
 
 # Create the disk image by combining both the boot sector and the compiled kernel
 $(OUT): bin/boot_sect.bin bin/kernel.bin
